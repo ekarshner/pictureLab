@@ -4,6 +4,7 @@ A1
 3. 307,200 pixels
 
 A3.
+Questions:
 1. row 0
 2. column 0
 3. column 639
@@ -11,3 +12,21 @@ A3.
 5. The row index increases from top to bottom.
 6. The column index increases from left to right.
 7. I can see squares of color.
+Exercises:
+1.   public static void main( String args[])
+  {
+    Picture pix = new Picture("kitten2.jpg");
+    pix.explore();
+  }
+2.  public static void main( String args[])
+  {
+	Picture p = new Picture("thumbs.jpg");
+	Picture smallP = p.scale(0.1,0.1);
+	smallP.write("smallthumbs.jpg");
+    Picture pix = new Picture("smallthumbs.jpg");
+    pix.explore();
+  }
+
+A5.
+Questions:
+1.
