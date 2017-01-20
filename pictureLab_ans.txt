@@ -29,4 +29,204 @@ Exercises:
 
 A5.
 Questions:
-1.
+1. No
+2. Yes
+3. No
+4. Yes
+5. Yes
+6. Yes
+7. No
+Exercises:
+1. N/A
+2. N/A
+3.    public static void testKeepOnlyBlue()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.keepOnlyBlue();
+    beach.explore();
+  }
+  
+      public void keepOnlyBlue(){
+	Pixel[][] pixels = this.getPixels2D();
+	for (Pixel[] rowArray : pixels)
+	{
+	for (Pixel pixelObj : rowArray)
+		{pixelObj.setRed(0);
+		 pixelObj.setGreen(0);
+		}
+	}
+  }
+4.    public static void testNegate()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.negate();
+    beach.explore();
+  }
+  
+        public void negate(){
+	Pixel[][] pixels = this.getPixels2D();
+	for (Pixel[] rowArray : pixels)
+	{
+	for (Pixel pixelObj : rowArray)
+		{pixelObj.setRed(255 - pixelObj.getRed());
+		pixelObj.setBlue(255 - pixelObj.getBlue());
+		pixelObj.setGreen(255 - pixelObj.getGreen());
+		}
+	}
+  }
+5.   public static void testGrayscale()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.grayscale();
+    beach.explore();
+  }
+  
+      public void grayscale(){
+	Pixel[][] pixels = this.getPixels2D();
+	for (Pixel[] rowArray : pixels)
+	{
+	for (Pixel pixelObj : rowArray)
+		{int r = pixelObj.getRed();
+		int g = pixelObj.getGreen();
+		int b = pixelObj.getBlue();
+		int aveg = (r + g + b) /3;
+		pixelObj.setRed(aveg);
+		pixelObj.setBlue(aveg);
+		pixelObj.setGreen(aveg);
+		}
+	}
+  }
+6.     public static void testFixUnderwater()
+  {
+    Picture water = new Picture("water.jpg");
+    water.explore();
+    water.fixUnderwater();
+    water.explore();
+  }
+  
+        public void fixUnderwater(){
+	Pixel[][] pixels = this.getPixels2D();
+	for (Pixel[] rowArray : pixels)
+	{
+	for (Pixel pixelObj : rowArray)
+		{int r = pixelObj.getRed();
+		int g = pixelObj.getGreen();
+		int b = pixelObj.getBlue();
+		if((10<=r && 30> r) && (155 <= g && 170 >= g) && (157<= b && 195 >= b)){
+		pixelObj.setRed(255);
+		pixelObj.setBlue(0);
+		pixelObj.setGreen(0);
+		}
+		}
+	}
+  }
+
+A7. 
+Questions:
+1. 90
+2. 112
+Exercises:
+1.   public void mirrorTemple()
+  {
+    int mirrorPoint = 276;
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    int count = 0;
+    Pixel[][] pixels = this.getPixels2D();
+    int cnt = 0;
+	
+    // loop through the rows
+    for (int row = 27; row < 97; row++)
+    {
+      // loop from 13 to just before the mirror point
+      for (int col = 13; col < mirrorPoint; col++)
+      {
+        
+        leftPixel = pixels[row][col];      
+        rightPixel = pixels[row]                       
+                         [mirrorPoint - col + mirrorPoint];
+        rightPixel.setColor(leftPixel.getColor());
+		cnt++;
+      }
+    }
+	System.out.println(cnt);
+  }
+count = 18410
+
+2.   public static void testMirrorArms()
+  {
+    Picture snow = new Picture("snowman.jpg");
+    snow.explore();
+    snow.mirrorArms();
+    snow.explore();
+  }
+  
+    public void mirrorArms()
+  {
+    int mirrorPoint = 191	;
+    Pixel topPixel = null;
+    Pixel botPixel = null;
+    int count = 0;
+    Pixel[][] pixels = this.getPixels2D();
+	
+    for (int col = 104; col < 170; col++)
+    {
+      for (int row = 160; row < mirrorPoint; row++)
+      {
+        
+		topPixel = pixels[row][col];      
+        botPixel = pixels[mirrorPoint - row + mirrorPoint]                       
+                         [col];
+        botPixel.setColor(topPixel.getColor());
+      }
+    }
+	
+	mirrorPoint = 195	;
+    topPixel = null;
+    botPixel = null;
+    count = 0;
+    pixels = this.getPixels2D();
+	
+    for (int col = 239; col < 292; col++)
+    {
+      for (int row = 172; row < mirrorPoint; row++)
+      {
+        
+		topPixel = pixels[row][col];      
+        botPixel = pixels[mirrorPoint - row + mirrorPoint]                       
+                         [col];
+        botPixel.setColor(topPixel.getColor());
+      }
+    }
+  }
+3.   public static void testMirrorGull()
+  {
+    Picture gull = new Picture("seagull.jpg");
+    gull.explore();
+    gull.mirrorGull();
+    gull.explore();
+  }
+
+   public void mirrorGull()
+  {
+    int mirrorPoint = 344	;
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    int count = 0;
+    Pixel[][] pixels = this.getPixels2D();
+	
+    for (int row = 236; row < 318; row++)
+    {
+      for (int col = 238; col < mirrorPoint; col++)
+      {
+        
+		leftPixel = pixels[row][col];      
+        rightPixel = pixels[row]                       
+                         [mirrorPoint - col + mirrorPoint];
+        rightPixel.setColor(leftPixel.getColor());
+      }
+    }
+	}
